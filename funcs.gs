@@ -57,11 +57,19 @@ function getCalendarBusyDays() {
  return uniqueDays;
 }
 //table-js.html functions
+function formatMySpreadsheet(id) {
+  // Set the font style of the cells in the range of B2:C2 to be italic.
+  var ss = SpreadsheetApp.openByUrl(url);
+  var ws = ss.getSheetByName("Data");
+  var data = ws.getRange(2,1,2,5).setBackground("Yellow");
+  return data;
+}
+
 function getTableData() {
 
-     var spreadSheet = SpreadsheetApp.openByUrl(url);
-     var workSheet = spreadSheet.getSheetByName("Data");
-     var data = workSheet.getRange(2,1, workSheet.getLastRow() -1, 5).getValues();
+     var ss = SpreadsheetApp.openByUrl(url);
+     var ws = ss.getSheetByName("Data");
+     var data = ws.getRange(2,1, ws.getLastRow() -1, 5).getValues();
      Logger.log(data);
      return data;
 }

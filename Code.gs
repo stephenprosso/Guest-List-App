@@ -16,7 +16,6 @@ function doGet(e) {
   }else {
    return render("home");
   }
- 
 }
 
 function loadForm() {
@@ -30,22 +29,15 @@ function loadForm() {
 
 }
 
-function loadTable() {
-
-  
+function loadTable() {  
   return render("table");
-
 }
 
-
 function loadAbout() {
-  
   return render("about",{title:"Title Fight $18,000 purse", other: "more other"});
-
 }
 
 function loadEditList() {
- 
   var spreadSheet = SpreadsheetApp.openByUrl(url);
   var workSheet = spreadSheet.getSheetByName("Options");
   var list = workSheet.getRange(1,1,workSheet.getRange("A1").getDataRegion().getLastRow(),1).getValues();
