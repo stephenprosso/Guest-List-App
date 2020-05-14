@@ -23,11 +23,11 @@
     <div class="container">
         <div class="row">
             <div class="input-field col s6">
-                <input id="firstName" type="text" class="validate">
+                <input id="firstName" type="text" class="validate" required>
                 <label for="firstName">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input id="lastNname" type="text" class="validate">
+                <input id="lastNname" type="text" class="validate" required>
                 <label for="lastNname">Last Name</label>
             </div>
         </div>
@@ -36,24 +36,24 @@
         <div class="row">
             <div class="input-field col s6">
 
-                <select id="credType">
+                <select id="credType" required>
                 <option disabled selected>-Select Cred Type-</option>
                   <?!= list; ?>
                  </select>
                 <label>Credential Type</label>
             </div>
             <div class="input-field col s6">
-              <input id="prefDate" type="text" class="datepicker">
+              <input id="prefDate" type="text" class="datepicker" required>
               <label for="prefDate">Calendar</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input id="zip" type="text" class="validate">
+                <input id="zip" type="text" class="validate" required pattern="^\d{5}$">
                 <label for="zip">Zip Code</label>
             </div>
             <div class="input-field col s6">
-                <input disabled id="est" type="text" class="validate">
+                <input disabled id="est" type="text" class="validate" required>
                 <label class="active" for="est">Estimate</label>
             </div>
         </div>

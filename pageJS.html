@@ -19,9 +19,48 @@
     
     }
     //add event listner to the btn. when user clicks it will call the function add name
-    document.getElementById("btn").addEventListener("click",addName);
+    document.getElementById("btn").addEventListener("click",btnClickAction);
     document.getElementById("zip").addEventListener("input",getEstimate);
     
+    function btnClickAction() {
+       var toValidate = {
+         firstName: "First Name Required",
+         lastNname: "Last Name Required",
+         credType: "Cred Type Required",
+         prefDate: "pick a date",
+         zip: "zip required",
+         est: "Estimate Required"
+       
+       };
+       
+       var idKeys = Object.keys(toValidate);
+       
+       var allValid = true;
+       idKeys.forEach(function(id){
+        var isValid =  checkIfValid(id, toValidate[id]);
+             if (!isValid) {
+             
+             allValid = false;
+             }
+ 
+       });
+       if(allValid) {
+       
+       addName();
+       }
+    
+    }
+    
+    function checkIfValid(elID, message) {
+      var isValid = document.getElementById(elID).checkValidity();
+    
+    if(!isValid){
+       M.toast({html: message});
+       return false;
+      } 
+     return true;
+    
+    }
     function addName(){
     var userInfo = {};
     
