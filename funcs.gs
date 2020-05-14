@@ -68,7 +68,7 @@ function formatMySpreadsheet(id) {
   Logger.log(selectedData);
   if (selectedData === id) {
   //selectedData.setBackground("Yellow");
-    ws.getRange(2,1,2,5).setBackground("Yellow").setFontStyle(null).setFontWeight(null).setFontSize('10');
+    ws.getRange(2,1,2,5).setBackground("Yellow").setFontStyle(null).setFontWeight(null).setFontSize('10').setFontColor('Red');
   } else { 
     ws.getRange(2,1,2,5).setBackground("blue").setFontStyle("italic").setFontWeight('Bold').setFontSize('18');
    }
@@ -80,7 +80,7 @@ function getTableData() {
 
      var ss = SpreadsheetApp.openByUrl(url);
      var ws = ss.getSheetByName("Data");
-     var data = ws.getRange(2,1, ws.getLastRow() -1, 6).getValues();
+     var data = ws.getRange(2,1, ws.getLastRow() -1, 6).getDisplayValues();
      Logger.log("data : " + data);
      return data;
 }
