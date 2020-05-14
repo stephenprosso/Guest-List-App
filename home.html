@@ -21,6 +21,18 @@
         </div>
     </div> -->
     <div class="container">
+      <nav>
+       <div class="nav-wrapper green darken-1">
+         <a href="#" class="brand-logo">LFO Guest List</a>
+         <ul id="nav-mobile" class="right hide-on-med-and-down">
+           
+           <li><a href="badges.html">Components</a></li>
+           <li><a href="collapsible.html">JavaScript</a></li>
+         </ul>
+       </div>
+     </nav>
+    </div>
+    <div class="container">
         <div class="row" align="center">
             <div class="input-field col s12">
               <h1>Home Dashboard</h1>
@@ -39,7 +51,11 @@
 
     <!-- SCRIPT FOR MATERIALIZE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+     </script>
     <!-- SCRIPTS FOR BOOTSTRAP -->
     <!--  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

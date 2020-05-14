@@ -58,19 +58,30 @@ function getCalendarBusyDays() {
 }
 //table-js.html functions
 function formatMySpreadsheet(id) {
-  // Set the font style of the cells in the range of B2:C2 to be italic.
+  // Set the background of the row to yellow where id (firstname + last name) = id 
+  Logger.log(id);
   var ss = SpreadsheetApp.openByUrl(url);
   var ws = ss.getSheetByName("Data");
-  var data = ws.getRange(2,1,2,5).setBackground("Yellow");
-  return data;
+  
+  //var selectedData = ws.getCurrentCell().getValue();
+  var selectedData = ws.getRange(2,1).getValue();
+  Logger.log(selectedData);
+  if (selectedData === id) {
+  //selectedData.setBackground("Yellow");
+    ws.getRange(2,1,2,5).setBackground("Yellow").setFontStyle(null).setFontWeight(null).setFontSize('10');
+  } else { 
+    ws.getRange(2,1,2,5).setBackground("blue").setFontStyle("italic").setFontWeight('Bold').setFontSize('18');
+   }
+  //return data;
+                                                
 }
 
 function getTableData() {
 
      var ss = SpreadsheetApp.openByUrl(url);
      var ws = ss.getSheetByName("Data");
-     var data = ws.getRange(2,1, ws.getLastRow() -1, 5).getValues();
-     Logger.log(data);
+     var data = ws.getRange(2,1, ws.getLastRow() -1, 6).getValues();
+     Logger.log("data : " + data);
      return data;
 }
 

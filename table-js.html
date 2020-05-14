@@ -32,6 +32,7 @@
     var col5= document.createElement("td");
     col5.textContent = r[4];
     var col6= document.createElement("td");
+
     col6.textContent = r[5];
     tbody.appendChild(col1);
     tbody.appendChild(col2);
@@ -53,8 +54,9 @@
         var createClickHandler =
             function(row) {
                 return function() {
-                    var cell = row.getElementsByTagName("td")[0];
-                    var id = cell.innerHTML;
+                    var fn = row.getElementsByTagName("td")[0];
+                    var ln = row.getElementsByTagName("td")[1];
+                    var id = fn.innerHTML + ln.innerHTML;
                     alert("id:" + id);
                     google.script.run.formatMySpreadsheet(id);
                 };

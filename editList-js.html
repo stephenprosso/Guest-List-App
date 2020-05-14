@@ -30,16 +30,16 @@
     //re-initialize the element after clearing the selected type
     M.FormSelect.init(credTypeSelect);
     
-    //google.script.run.withSuccessHandler(generateBBTable).getBBTableData();
+    google.script.run.withSuccessHandler(generateBBTable).getBBTableData();
     //refreshTable();
     
     }
     
 
     function generateBBTable(dataArray) {
-  var tbody = document.getElementById("table-body");
- tbody.innerHtml = "";
-       
+      //var tbody = document.getElementById("table-body");
+      $('#tbody').innerHtml = "";
+      $('#table-body').empty();
       var tbody = document.getElementById("table-body");
        
          console.log(tbody);

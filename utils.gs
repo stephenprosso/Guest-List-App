@@ -1,5 +1,5 @@
 function include(filename) {
-
+//file name is passed to the html service and we get the content of the file
    return HtmlService.createHtmlOutputFromFile(filename).getContent();
 
 }
