@@ -14,7 +14,7 @@ function doGet(e) {
   if(Route[e.parameters.v]) {
   return Route[e.parameters.v]();
   }else {
-   return render("home");
+   return render("home", loadHome);
   }
 }
 
@@ -43,9 +43,18 @@ function loadEditList() {
   var list = workSheet.getRange(1,1,workSheet.getRange("A1").getDataRegion().getLastRow(),1).getValues();
   var htmlListArray = list.map(function(r){return '<option>' + r[0] + '</option>'; }).join('');  
 
+
   return render("editList", {list: htmlListArray});
 }
 
+function loadHome() {
+  var spreadSheet = SpreadsheetApp.openByUrl(url);
+  var sheets = spreadSheet.getSheets().forEach(callback);
+  Logger.log(sheets);
+  var sheetArray = sheets.map(function(s){return '<option>' + s[0] + '</option>'; }).join(''); 
+  
+   return render("home", {sheets: sheetArray});
+}
 
 
 

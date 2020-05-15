@@ -15,6 +15,6 @@ function render(file,argsObject) {
     
     });
   }//END IF
-  return tmp.evaluate().setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
-
+  return tmp.evaluate();
+  //return tmp.evaluate().setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
