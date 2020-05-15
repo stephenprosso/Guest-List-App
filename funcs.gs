@@ -56,6 +56,22 @@ function getCalendarBusyDays() {
   });
  return uniqueDays;
 }
+
+function getWords() {
+   var ss = SpreadsheetApp.openByUrl(url);
+   var ws = ss.getSheetByName("Venue");
+   var data = ws.getRange(1,1, ws.getLastRow(), 1).getValues();
+
+   var options = {};
+  data.forEach(function(v){
+  
+  options[v[0]] = null;
+  
+  
+  }); 
+   return options;  
+}
+
 //table-js.html functions
 function formatMySpreadsheet(id) {
   // Set the background of the row to yellow where id (firstname + last name) = id 

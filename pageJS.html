@@ -1,12 +1,25 @@
  <script>
  
     document.addEventListener('DOMContentLoaded', function() {
+    
+      //add event listner to the btn. when user clicks it will call the function add name
+      document.getElementById("btn").addEventListener("click",btnClickAction);
+      document.getElementById("zip").addEventListener("input",getEstimate);
+      
       var selectBoxes = document.querySelectorAll('select');
       M.FormSelect.init(selectBoxes);  
-      google.script.run.withSuccessHandler(populateDates).getCalendarBusyDays();     
+      google.script.run.withSuccessHandler(populateDates).getCalendarBusyDays();  
+      
+      google.script.run.withSuccessHandler(populateWords).getWords();
     
     });
 
+    function populateWords(words){
+    
+       var autocomplete = document.getElementById('venue');
+       var instances = M.Autocomplete.init(autocomplete, { data: words });
+    }
+    
     
     function populateDates(disabledDays) {
     var datePicker = document.getElementById('prefDate');
@@ -18,9 +31,7 @@
       });
     
     }
-    //add event listner to the btn. when user clicks it will call the function add name
-    document.getElementById("btn").addEventListener("click",btnClickAction);
-    document.getElementById("zip").addEventListener("input",getEstimate);
+
     
     function btnClickAction() {
        var toValidate = {
