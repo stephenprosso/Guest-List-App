@@ -109,3 +109,16 @@ function getBBTableData() {
      Logger.log(data);
      return data;
 }
+
+function getSheets() {
+  var ss = SpreadsheetApp.openByUrl(url);
+  var sheets = ss.getSheets();
+  var holderArray = [];
+  for(var x=0; x< sheets.length; x++){
+     var sheetName = sheets[x].getName();
+    if(sheetName != 'Access' && sheetName != 'Home'){
+     holderArray.push(sheetName);
+    }
+  }
+  return holderArray;
+}
